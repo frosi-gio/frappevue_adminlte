@@ -152,6 +152,7 @@
         },
         mounted(){
             // console.log(this)
+            // alert(process.env.VUE_APP_API_DOMAIN)
         }
     }
 </script>

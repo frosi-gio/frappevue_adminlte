@@ -180,7 +180,7 @@
               <img :src="user_image" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-              <router-link to="#" class="d-block"> {{user.full_name ? user.full_name: ''}}  </router-link>
+              <router-link to="#" class="d-block">  </router-link>
             </div>
           </div>
 

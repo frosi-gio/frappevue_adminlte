@@ -1,9 +1,9 @@
-import appConfig from '../.appConfig';
+// import appConfig from '../.appConfig';
 
 export default {
     name: 'utils',
     Frappe: class Frappe {
-        constructor(url){
+        constructor(url) {
             this.url = url;
             this.token = '';
             this.headers = {
@@ -12,46 +12,46 @@ export default {
             };
             // this.stack = <call stack>;
         }
-        async login(body){
-            let res = await fetch(`${this.url}/api/method/${appConfig.frappe_custom_app}.authentication.login`, {
+        async login(body) {
+            let res = await fetch(`${this.url}/api/method/${process.env.VUE_APP_API_AUTH}.authentication.login`, {
                 method: 'POST',
                 headers: this.headers,
                 body: JSON.stringify(body)
             })
             let auth = await res.json()
-            // console.log('AUTH', auth)
-            //     // confirm auth
-            if(auth.message.status_code==200){
+            console.log('AUTH', auth)
+            // confirm auth
+            if (auth.message.status_code == 200) {
                 let user = await fetch(`${this.url}/api/resource/User/${auth.message.user}`, {
                     method: 'GET',
-                    headers: {'Authorization': `token ${auth.message.token}`}
+                    headers: { 'Authorization': `token ${auth.message.token}` }
                 })
                 user = await user.json()
-                return await {...user, 'token':auth.message.token}
+                return await { ...user, 'token': auth.message.token }
             } else {
                 return auth.message;
             }
         }
         // get updated headers
-        getHeader(){
+        getHeader() {
             let token = JSON.parse(sessionStorage.frappUser).token;
             this.headers.Authorization = `token ${token}`
             // return this.headers;
         }
 
         // handleResponse
-        async handleResponse(res){
-            if(res.status==200){
+        async handleResponse(res) {
+            if (res.status == 200) {
                 let data = await res.json();
-                return await {'status_code': res.status, 'data': data.data};
-            } else if(res.status==404) {
+                return await { 'status_code': res.status, 'data': data.data };
+            } else if (res.status == 404) {
                 // not found
-                return {'status_code': res.status, 'text': res.statusText}
+                return { 'status_code': res.status, 'text': res.statusText }
             }
         }
 
         // get_doc
-        async get_doc(doctype, docname){
+        async get_doc(doctype, docname) {
             try {
                 this.getHeader();
                 let res = await fetch(`${this.url}/api/resource/${doctype}/${docname}`, {
@@ -64,7 +64,7 @@ export default {
             }
         }
         // update doc
-        async update_doc(doctype, docname, body){
+        async update_doc(doctype, docname, body) {
             try {
                 this.getHeader();
                 let res = await fetch(`${this.url}/api/resource/${doctype}/${docname}`, {
@@ -78,7 +78,7 @@ export default {
             }
         }
         // create doc
-        async new_doc(doctype, body){
+        async new_doc(doctype, body) {
             try {
                 this.getHeader();
                 let res = await fetch(`${this.url}/api/resource/${doctype}`, {
@@ -92,7 +92,7 @@ export default {
             }
         }
         // DELETE doc
-        async delete_doc(doctype, docname){
+        async delete_doc(doctype, docname) {
             try {
                 this.getHeader();
                 let res = await fetch(`${this.url}/api/resource/${doctype}/${docname}`, {
@@ -105,11 +105,11 @@ export default {
             }
         }
         // get list
-        async get_list(doctype, filters=null){
+        async get_list(doctype, filters = null) {
             try {
                 this.getHeader();
                 let url = `${this.url}/api/resource/${doctype}`
-                if(filters){
+                if (filters) {
                     url = url + '?' + filters;
                 }
                 // alert(url)
@@ -134,9 +134,9 @@ export default {
 
         // get pdf
         async getPDF(
-                doctype, docname, format, Standard,
-                no_letterhead, letterhead, lang
-            ){
+            doctype, docname, format, Standard,
+            no_letterhead, letterhead, lang
+        ) {
             format = format ? format : 'Standard';
             no_letterhead = no_letterhead ? no_letterhead : 1;
             letterhead = letterhead ? letterhead : 'No Letterhead';
@@ -149,7 +149,7 @@ export default {
                 method: 'GET',
                 headers: this.headers
             })
-            if(res.status==200){
+            if (res.status == 200) {
                 let blob = await res.blob();
                 let file = await window.URL.createObjectURL(blob);
                 window.location.assign(file);
