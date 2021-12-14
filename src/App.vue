@@ -15,7 +15,7 @@
         name: 'App',
         data(){
             return {
-                title: 'Frappe AdminLTE',
+                title: 'Salon Agenda',
                 switchWrapper: 'wrapper',
                 disableLoginDiv: false,
 
