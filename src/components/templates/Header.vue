@@ -117,7 +117,7 @@
                   <img :src="user_image" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                 </div></i>
               <!-- <i class="far fa-user fa-2x"></i> -->
-              <!-- <span class="badge badge-danger navbar-badge">3</span> -->
+              <span class="badge badge-danger navbar-badge">3</span>
             </router-link>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
               <router-link to="#" class="dropdown-item">
@@ -125,7 +125,7 @@
                 <div class="media">
                   <div class="media-body">
                     <h3 class="dropdown-item-title text-center">
-                      <router-link to="/profile" class="text-center">Profile</router-link>
+                      <!-- <router-link to="/profile" class="text-center">Profile</router-link> -->
                     </h3>
                 </div>
                 </div>
@@ -203,13 +203,13 @@
                 </router-link>
               </li>
               <li class="nav-item">
-                <router-link to="pages/widgets.html" class="nav-link">
-                  <i class="nav-icon fas fa-th"></i>
+                <!-- <router-link to="pages/widgets.html" class="nav-link"> -->
+                  <!-- <i class="nav-icon fas fa-th"></i>
                   <p>
                     Widgets
                     <span class="right badge badge-danger">New</span>
-                  </p>
-                </router-link>
+                  </p> -->
+                <!-- </router-link> -->
               </li>
              
   
