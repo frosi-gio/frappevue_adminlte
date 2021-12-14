@@ -10,7 +10,11 @@
             <router-link to="/" class="nav-link">Home</router-link>
           </li>
           <li class="nav-item d-none d-sm-inline-block">
-            <router-link to="#" class="nav-link">Contact</router-link>
+            <router-link to="/appointment" class="nav-link">Appointments</router-link>
+          </li>
+          
+          <li class="nav-item d-none d-sm-inline-block">
+            <router-link to="/my-invoices" class="nav-link">Invoice</router-link>
           </li>
         </ul>
 
