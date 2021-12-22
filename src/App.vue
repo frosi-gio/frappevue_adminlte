@@ -23,7 +23,8 @@
         },
         components: {
             Header,
-            Footer
+            Footer,
+            
         },
         methods: {
             enableLoginDiv(){

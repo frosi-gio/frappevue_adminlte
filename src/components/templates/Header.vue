@@ -16,7 +16,10 @@
         <router-link to="/" class="nav-link">Home</router-link>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <router-link to="#" class="nav-link">Contact</router-link>
+        <router-link to="/dashboard" class="nav-link">Dashboard</router-link>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <router-link to="/profile" class="nav-link">Dashboard 2</router-link>
       </li>
             <li class="nav-item d-none d-sm-inline-block">
         <router-link to="/about" class="nav-link">About</router-link>
