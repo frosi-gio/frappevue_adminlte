@@ -4,21 +4,24 @@ import router from './router'
 import vueTheStorages from 'vue-the-storages'
 import utils from './utils';
 import appConfig from '../.appConfig';
+import VueTextareaAutosize from 'vue-textarea-autosize';
+
 
 let app = createApp(App)
 app.use(router)
     .use(vueTheStorages)
-// app.use(cors)
+    // app.use(cors)
+app.use(VueTextareaAutosize)
 
 //  global helper
 let remoteUrl = appConfig.domain;
 app.config.globalProperties.$remoteUrl = remoteUrl;
 app.config.globalProperties.$frappe = new utils.Frappe(remoteUrl);
 // app.config.globalProperties.$getToken = () =>
-let getToken = ()=>{
+let getToken = () => {
     return JSON.parse(localStorage.frappUser).token
 }
-let sessionUserData = ()=>{
+let sessionUserData = () => {
     try {
         return JSON.parse(localStorage.frappUser).userData;
     } catch (e) {
@@ -29,25 +32,25 @@ let sessionUserData = ()=>{
 }
 
 let popIt = {
-    success: (title, msg)=>{
+    success: (title, msg) => {
         return Swal.fire(
-          title,
-          msg,
-          'success'
+            title,
+            msg,
+            'success'
         )
     },
-    error: (title, msg)=>{
+    error: (title, msg) => {
         return Swal.fire(
-          title,
-          msg,
-          'warning'
+            title,
+            msg,
+            'warning'
         )
     }
 }
 
 app.config.globalProperties.$sessionUserData = sessionUserData;
 app.config.globalProperties.$popIt = popIt;
-app.config.globalProperties.$formatCurrency = (amount, currency)=>{
+app.config.globalProperties.$formatCurrency = (amount, currency) => {
     return new Intl.NumberFormat('en-NG', { style: 'currency', currency: currency }).format(amount);
 }
 
