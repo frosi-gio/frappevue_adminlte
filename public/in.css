@@ -11772,7 +11772,7 @@ body.sidebar-collapse:not(.sidebar-mini-md):not(.sidebar-mini) .main-header::bef
     .sidebar-mini-md .main-footer,
     .sidebar-mini-md .main-header {
         transition: margin-left .3s ease-in-out;
-        margin-left: 0px
+        margin-left: 250px
     }
 }
 

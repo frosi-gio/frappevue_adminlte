@@ -68,6 +68,9 @@
                     'Sales Invoice',
                     'fields=["name", "title", "status", "modified", "grand_total", "currency"]&order_by=modified DESC&limit=1000'
                 );
+                // 'Patient Appointment',
+                //     'fields=["name","practitioner", "appointment_date","appointment_time", "patient","duration","appointment_type", "title", "status", "modified"]&order_by=name DESC&limit=1000',as_dict="True"
+                // )
                 console.log('res', res)
                 if(res.status_code==200){
                     // console.log(res)

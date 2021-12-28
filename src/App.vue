@@ -87,3 +87,9 @@
           }
     }
 </script>
+<style>
+.layout-lg-navbar-fixed .wrapper.sidebar-collapse .main-sidebar:hover .brand-link {
+        transition: width .3s ease-in-out;
+        width: 450px
+    }
+</style>

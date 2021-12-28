@@ -147,7 +147,7 @@
             }
 
 
-            // alert(this.$route.path)
+           alert(this.$route.path)
 
         },
         mounted(){
